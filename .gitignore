@@ -1,1 +1,7 @@
 node_modules
+
+# Mac
+.DS_Store
+
+# NPM
+./**/package-lock.json

@@ -7,8 +7,11 @@
 
 # Build
 
+- Poosoap Mobile App (ios)
+
 ```bash
 
-$ npx nx build is-odd
+// ios 앱을 실행하기전에 pod 라이브러리 받아야함.
+$ npx nx pod mobile
 
 ```
