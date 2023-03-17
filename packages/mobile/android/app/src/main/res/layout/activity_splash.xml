@@ -12,5 +12,5 @@
         android:layout_weight="1"
         android:layout_margin="80dp"
         android:src="@mipmap/ic_launcher" />
-    
+
 </LinearLayout>
