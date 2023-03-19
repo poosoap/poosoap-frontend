@@ -1,10 +1,5 @@
 package com.poosoapapp;
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
-
-import androidx.annotation.Nullable;
-
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
@@ -47,11 +42,5 @@ public class MainActivity extends ReactActivity {
         // If you opted-in for the New Architecture, we enable Concurrent React (i.e. React 18).
         DefaultNewArchitectureEntryPoint.getConcurrentReactEnabled() // concurrentRootEnabled
         );
-  }
-
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-    super.onCreate(savedInstanceState, persistentState);
-    setContentView(R.layout.activity_splash);
   }
 }
