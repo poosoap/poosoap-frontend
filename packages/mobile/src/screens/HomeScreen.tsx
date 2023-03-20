@@ -1,18 +1,23 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import {RootStackParamList} from '../navigator/type';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  centerTitle: {fontSize: 32, textAlign: 'center', padding: 10},
+});
 
-const HomeScreen: React.FC<Props> = ({navigation}) => {
+type Props = BottomTabScreenProps<RootStackParamList, 'Home'>;
+
+const HomeScreen: React.FC<Props> = ({}) => {
   return (
-    <View>
-      <Text>Map Page</Text>
-      <Button
-        title="Go to Account"
-        onPress={() => navigation.push('Account')}
-      />
+    <View style={styles.container}>
+      <Text style={styles.centerTitle}>Map Page</Text>
     </View>
   );
 };
