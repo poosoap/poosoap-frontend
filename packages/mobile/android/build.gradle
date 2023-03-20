@@ -12,7 +12,11 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+<<<<<<< Updated upstream
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
+=======
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
+>>>>>>> Stashed changes
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.3.1")
