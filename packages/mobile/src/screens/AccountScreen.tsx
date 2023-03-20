@@ -1,15 +1,23 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
-import {Button, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {RootStackParamList} from '../navigator/type';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Account'>;
+const styles = StyleSheet.create({
+  container: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  centerTitle: {fontSize: 32, textAlign: 'center', padding: 10},
+});
 
-const AccountScreen: React.FC<Props> = ({navigation}) => {
+type Props = BottomTabScreenProps<RootStackParamList, 'Account'>;
+
+const AccountScreen: React.FC<Props> = ({}) => {
   return (
-    <View>
-      <Text>Account Page</Text>
-      <Button title="Go Home" onPress={() => navigation.popToTop()} />
+    <View style={styles.container}>
+      <Text style={styles.centerTitle}>Account Page</Text>
     </View>
   );
 };

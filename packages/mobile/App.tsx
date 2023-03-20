@@ -1,27 +1,30 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import AccountScreen from './src/screens/AccountScreen';
 import {RootStackParamList} from './src/navigator/type';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
+      <Tab.Navigator
+        initialRouteName="Home"
+        screenOptions={{headerShown: false}}>
+        <Tab.Screen
           name="Home"
-          options={{title: 'Map'}}
           component={HomeScreen}
+          options={{tabBarLabel: '화장실 찾기'}}
         />
-        <Stack.Screen
+        <Tab.Screen
           name="Account"
-          options={{title: 'Account'}}
           component={AccountScreen}
+          options={{tabBarLabel: '계정'}}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
