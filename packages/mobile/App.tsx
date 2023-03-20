@@ -13,6 +13,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableNativeFeedback,
   useColorScheme,
   View,
 } from 'react-native';
@@ -24,11 +25,10 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
-
+import { login, logout, unlink } from '@react-native-seoul/kakao-login';
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -61,6 +61,21 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  const signInWithKakao = async () => {
+    const result = await login();
+    console.log(result);
+  }
+  
+  const signOutWithKakako = async() => {
+    const result = await logout();
+    console.log(result);
+  }
+
+  const unlinkWithKakao = async() => {
+    const result = await unlink();
+    console.log(result);
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
