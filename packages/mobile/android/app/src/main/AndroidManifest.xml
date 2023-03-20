@@ -9,7 +9,11 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="true"
+<<<<<<< Updated upstream
         android:theme="@style/AppTheme">
+=======
+      android:theme="@style/AppTheme">
+>>>>>>> Stashed changes
       <activity
         android:name=".MainActivity"
         android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
@@ -21,17 +25,32 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+<<<<<<< Updated upstream
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity" android:exported="true">
+=======
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+>>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
+<<<<<<< Updated upstream
                 <!-- 카카오 디벨로퍼에서 받은 네이티브 앱 key를 test 텍스트를 대치하여 넣어준다. -->
                 <!-- kakao라는 텍스트는 지우지 않는다!!!!! -->
                 <data android:host="oauth"
                     android:scheme="kakao767ae99dfd9cbb9f7a72f6674372494b" />
             </intent-filter>
         </activity>
+=======
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
+                <data android:host="oauth"
+                    android:scheme='kakao767ae99dfd9cbb9f7a72f6674372494b' />
+            </intent-filter>
+        </activity>
+
+>>>>>>> Stashed changes
     </application>
 </manifest>
