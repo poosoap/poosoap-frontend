@@ -1,10 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from './src/screens/HomeScreen';
-import AccountScreen from './src/screens/AccountScreen';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createScreenOptions} from './src/navigator/bottomTabNavigator';
 import {RootStackParamList} from './src/navigator/type';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import HomeScreen from './src/screens/HomeScreen';
+import AccountScreen from './src/screens/AccountScreen';
 
 const Tab = createBottomTabNavigator<RootStackParamList>();
 
@@ -13,7 +14,7 @@ function App() {
     <NavigationContainer>
       <Tab.Navigator
         initialRouteName="Home"
-        screenOptions={{headerShown: false}}>
+        screenOptions={createScreenOptions}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
