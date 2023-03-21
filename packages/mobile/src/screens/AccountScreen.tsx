@@ -18,18 +18,30 @@ type Props = BottomTabScreenProps<RootStackParamList, 'Account'>;
 
 const AccountScreen: React.FC<Props> = ({}) => {
   const signInWithKakao = async () => {
-    const result = await login();
-    console.log(result);
+    try {
+      const result = await login();
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const signOutWithKakako = async () => {
-    const result = await logout();
-    console.log(result);
+    try {
+      const result = await logout();
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const unlinkWithKakao = async () => {
-    const result = await unlink();
-    console.log(result);
+    try {
+      const result = await unlink();
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <View style={styles.container}>
