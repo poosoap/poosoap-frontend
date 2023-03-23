@@ -1,6 +1,9 @@
 .container {
+  box-sizing: border-box;
   display: flex;
   height: 100vh;
-  box-sizing: border-box;
-  box-shadow: inset 0 0 20px red;
+}
+
+.content {
+  flex-grow: 1;
 }
