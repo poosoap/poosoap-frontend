@@ -5,7 +5,8 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
-    "nx": "15.8.6"
+    "nx": "15.8.6",
+    "typescript": "^5.0.2"
   },
   "workspaces": [
     "packages/*"
