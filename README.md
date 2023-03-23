@@ -5,13 +5,9 @@
 > NX의 package-based-repo-tutorial를 참고했습니다.
 > https://nx.dev/getting-started/package-based-repo-tutorial
 
-# Build
+# Projects
 
-- Poosoap Mobile App (ios)
-
-```bash
-
-// ios 앱을 실행하기전에 pod 라이브러리 받아야함.
-$ npx nx pod mobile
-
-```
+| Project | Type      | Comments                                        |
+| ------- | --------- | ----------------------------------------------- |
+| mobile  | RN        | poosoap 모바일 어플리케이션 프로젝트            |
+| map-app | React Web | Kakao Map을 이용한 화장실 위치를 나타내는 웹 앱 |
