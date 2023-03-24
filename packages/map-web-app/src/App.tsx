@@ -4,7 +4,7 @@ import { KakaoMap } from "./components/KakaoMap";
 function App() {
   return (
     <div className="container">
-      <div className="content">
+      <div className="map-content">
         <KakaoMap />
       </div>
     </div>
