@@ -15,8 +15,10 @@ import {getCurrentPostions} from '../module/getCurrentPosition';
 type Props = BottomTabScreenProps<RootStackParamList, 'Home'>;
 
 const HomeScreen: React.FC<Props> = ({}) => {
+  
   const webViewRef = useRef<WebView>(null);
-  useEffect(() => {
+
+  const onLoadProgress = () => {
     requestLocationPermission().then(response => {
       if (response) {
         getCurrentPostions(webViewRef)
@@ -25,11 +27,12 @@ const HomeScreen: React.FC<Props> = ({}) => {
         requestLocationPermission()
       }
     }).catch(error => console.log(`permissionError: ${error}`));
-  }, []);
+  }
 
   return (
     <WebView
       ref={webViewRef}
+      onLoadProgress={onLoadProgress}
       source={{uri: 'http://poosoapapp-test.kro.kr:8080'}}
     />
   );
