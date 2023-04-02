@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { useLoadKakaoScript } from "../hooks/useLoadKakaoScript";
 import "./KakaoMap.css";
-
-const TEST_LAT_LNG: [number, number] = [37.3427776, 127.1032345];
-
-export const KakaoMap: React.FC = () => {
+import { CurrentPositionType } from "./positionTypes";
+export const KakaoMap: React.FC<CurrentPositionType> = ({
+  latitude,
+  longitude,
+}) => {
+  const TEST_LAT_LNG: [number, number] = [latitude, longitude];
   const [isLoaded, error] = useLoadKakaoScript();
 
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -16,7 +18,6 @@ export const KakaoMap: React.FC = () => {
         center: new kakao.maps.LatLng(...TEST_LAT_LNG), //지도의 중심좌표.
         level: 2, //지도의 레벨(확대, 축소 정도)
       };
-
       new kakao.maps.Map(mapRef.current, options);
     }
   }, [isLoaded]);
@@ -29,5 +30,8 @@ export const KakaoMap: React.FC = () => {
     );
   }
 
-  return <div ref={mapRef} className="kakao-map"></div>;
+  return (
+    <div ref={mapRef} className="kakao-map">
+    </div>
+  );
 };
