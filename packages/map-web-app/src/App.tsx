@@ -15,7 +15,7 @@ function App() {
   }
 
   if(navigator.userAgent.toLowerCase().includes('android')){
-    document.addEventListener("message", messageHandler as any, true);
+    document.addEventListener("message", messageHandler as any, false);
   } else if(navigator.userAgent.toLowerCase().includes('ios')){
     window.addEventListener("message", messageHandler, false); 
   }
