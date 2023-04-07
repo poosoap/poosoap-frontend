@@ -14,7 +14,6 @@ import WebView, { WebViewNavigation } from 'react-native-webview';
 import {requestLocationPermission} from '../module/requestLocationPermission';
 import {getCurrentPositions} from '../module/getCurrentPosition';
 import {WebViewProgressEvent} from 'react-native-webview/lib/WebViewTypes';
-import { ShouldStartLoadRequest } from 'react-native-webview/lib/WebViewTypes';
 
 type Props = BottomTabScreenProps<RootStackParamList, 'Home'>;
 
