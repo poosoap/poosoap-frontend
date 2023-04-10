@@ -23,7 +23,7 @@ const HomeScreen: React.FC<Props> = ({}) => {
   const webViewRef = useRef<WebView>(null);
 
   const onLoadProgress = (event: WebViewProgressEvent) => {
-    if (event.nativeEvent.progress === 1) { //webView가 로딩되는중인지 체크하는 조건문
+    if (event.nativeEvent.progress === 1) { //webView가 로딩 완료되었는지 체크하는 조건문
       if (webViewRef.current) {
         requestLocationPermission()
           .then(response => {
