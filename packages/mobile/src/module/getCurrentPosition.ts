@@ -6,7 +6,7 @@ import LocationModule from './LocationModule';
 export const getCurrentPositions = (): Promise<CurrentPositionType> => {
   return new Promise<CurrentPositionType>((resolve, reject) => {
     try {
-      /*임시데이터를 이용한 웹뷰 띄우는 기능*/
+      /*현재 위치 좌표값 가져오기*/
       LocationModule.getCurrentPosition()
         .then((position: CurrentPositionType) => {
           const {latitude, longitude} = position; // latitude와 longitude의 값을 가져오는부분
