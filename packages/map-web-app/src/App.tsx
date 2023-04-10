@@ -1,7 +1,7 @@
 import "./App.css";
 import { KakaoMap } from "./components/KakaoMap";
 import { useState, useEffect } from 'react';
-import { CurrentPositionType } from "./components/positionTypes";
+import { CurrentPositionType } from "./type/positionTypes";
 
 function App() {
   const [currentPosition, setCurrentPosition] = useState<CurrentPositionType>();

@@ -10,46 +10,37 @@ import {
 } from 'react-native';
 import {RootStackParamList} from '../navigator/type';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
-import WebView, { WebViewNavigation } from 'react-native-webview';
+import WebView, {WebViewNavigation} from 'react-native-webview';
 import {requestLocationPermission} from '../module/requestLocationPermission';
 import {getCurrentPositions} from '../module/getCurrentPosition';
 import {WebViewProgressEvent} from 'react-native-webview/lib/WebViewTypes';
+import LocationModule from '../module/LocationModule';
+import {CurrentPositionType} from '../type/position';
 
 type Props = BottomTabScreenProps<RootStackParamList, 'Home'>;
 
 const HomeScreen: React.FC<Props> = ({}) => {
-
   const webViewRef = useRef<WebView>(null);
 
   const onLoadProgress = (event: WebViewProgressEvent) => {
-    if (event.nativeEvent.progress === 1) {
+    if (event.nativeEvent.progress === 1) { //webView가 로딩되는중인지 체크하는 조건문
       if (webViewRef.current) {
         requestLocationPermission()
           .then(response => {
-            if (response.coarseLocationPermission === true) {
-              if(response.fineLocationPermission === false){
-                getCurrentPositions(webViewRef, false);
-              } else {
-                getCurrentPositions(webViewRef, true)
-              }
-            } else {
-              ToastAndroid.show(
-                '위치 권한이 허용되어 있지 않습니다.',
-                ToastAndroid.SHORT,
-              );
-              onLoadProgress(event);
-            }
+            getCurrentPositions().then((position: CurrentPositionType) => {
+              webViewRef.current?.postMessage(JSON.stringify(position));
+            });
           })
           .catch(error => console.log(`permissionError: ${error}`));
       }
     }
   };
-  
-  return ( 
+
+  return (
     <WebView
       ref={webViewRef}
       onLoadProgress={onLoadProgress}
-      source={{uri: 'http://localhost:8080'}}
+      source={{uri: 'http://poosoapapp-test.kro.kr:8080'}}
     />
   );
 };

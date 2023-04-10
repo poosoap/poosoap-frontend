@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { useLoadKakaoScript } from "../hooks/useLoadKakaoScript";
 import "./KakaoMap.css";
-import { CurrentPositionType } from "./positionTypes";
+import { CurrentPositionType } from "../type/positionTypes";
 export const KakaoMap: React.FC<CurrentPositionType> = ({
   latitude,
   longitude,
 }) => {
-  const TEST_LAT_LNG: [number, number] = [latitude, longitude];
   const [isLoaded, error] = useLoadKakaoScript();
 
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -15,7 +14,7 @@ export const KakaoMap: React.FC<CurrentPositionType> = ({
     if (isLoaded && mapRef.current !== null) {
       const options = {
         //지도를 생성할 때 필요한 기본 옵션
-        center: new kakao.maps.LatLng(...TEST_LAT_LNG), //지도의 중심좌표.
+        center: new kakao.maps.LatLng(latitude, longitude), //지도의 중심좌표.
         level: 2, //지도의 레벨(확대, 축소 정도)
       };
       new kakao.maps.Map(mapRef.current, options);
